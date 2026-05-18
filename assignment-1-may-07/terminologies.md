@@ -1,5 +1,16 @@
 # `productTypeId` values 
 
+PRODUCT_TYPE_ID
+---------------
+NULL
+DIGITAL_GOOD
+FINISHED_GOOD
+GIFT_CARD
+GOOD_TEMPLATE
+MARKETING_PKG_PICK
+SERVICE
+
+
 ## `FINISHED_GOOD`
 
 This is a **regular, standalone, sellable product** — a single physical item that exists on its own.
