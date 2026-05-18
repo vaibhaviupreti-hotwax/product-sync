@@ -1,5 +1,5 @@
 # Questions
-
+-----------
 ## Q1 
 - prodCatalogCategoryTypeId is kept as one of the primary key in ProdCatalogCategory Entity
 - what is the significance of keeping prodCatalogCategoryTypeId in ProdCatalogCategory Entity ?
