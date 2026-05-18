@@ -1,0 +1,192 @@
+<mxfile host="app.diagrams.net" modified="2026-05-18T00:00:00.000Z" agent="ChatGPT" version="24.7.17">
+  <diagram id="diagram1" name="Page-1">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+      arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900"
+      math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- PRODUCT -->
+        <mxCell id="product"
+          value="&lt;b&gt;Product&lt;/b&gt;"
+          style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#cc0000;fontColor=#cc0000;"
+          vertex="1" parent="1">
+          <mxGeometry x="120" y="60" width="120" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pcm"
+          value="&lt;b&gt;Product_Category_Member&lt;/b&gt;&#xa;&#xa;ProductId *&#xa;ProductCategoryId *&#xa;fromDate *"
+          style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#cc0000;fontColor=#cc0000;align=left;verticalAlign=top;"
+          vertex="1" parent="1">
+          <mxGeometry x="90" y="120" width="190" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- PRODUCT CATEGORY -->
+        <mxCell id="prodcat"
+          value="&lt;b&gt;Product_Category&lt;/b&gt;"
+          style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#cc0000;fontColor=#cc0000;"
+          vertex="1" parent="1">
+          <mxGeometry x="320" y="60" width="160" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- PROD CATALOG -->
+        <mxCell id="catalog"
+          value="&lt;b&gt;ProdCatalog&lt;/b&gt;"
+          style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#cc0000;fontColor=#cc0000;"
+          vertex="1" parent="1">
+          <mxGeometry x="560" y="60" width="140" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="catalogcat"
+          value="&lt;b&gt;ProdCatalogCategory&lt;/b&gt;&#xa;&#xa;ProductCategoryId *&#xa;ProdCatalogId *&#xa;ProdCatalogCategoryTypeId *&#xa;fromDate *"
+          style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#cc0000;fontColor=#cc0000;align=left;verticalAlign=top;"
+          vertex="1" parent="1">
+          <mxGeometry x="500" y="120" width="240" height="150" as="geometry"/>
+        </mxCell>
+
+        <!-- PRODUCT STORE -->
+        <mxCell id="store"
+          value="&lt;b&gt;ProductStore&lt;/b&gt;"
+          style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#cc0000;fontColor=#cc0000;"
+          vertex="1" parent="1">
+          <mxGeometry x="820" y="60" width="150" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="storecatalog"
+          value="&lt;b&gt;ProductStoreCatalog&lt;/b&gt;&#xa;&#xa;ProductStoreId *&#xa;ProdCatalogId *&#xa;fromDate"
+          style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#cc0000;fontColor=#cc0000;align=left;verticalAlign=top;"
+          vertex="1" parent="1">
+          <mxGeometry x="780" y="120" width="220" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- TOP RELATION LINES -->
+        <mxCell id="e1"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#cc0000;"
+          edge="1" parent="1" source="product" target="pcm">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e2"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#cc0000;"
+          edge="1" parent="1" source="prodcat" target="pcm">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e3"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#cc0000;"
+          edge="1" parent="1" source="prodcat" target="catalogcat">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e4"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#cc0000;"
+          edge="1" parent="1" source="catalog" target="catalogcat">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e5"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#cc0000;"
+          edge="1" parent="1" source="store" target="storecatalog">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e6"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#cc0000;"
+          edge="1" parent="1" source="catalog" target="storecatalog">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- LOWER NOTES / RELATION SECTION -->
+        <mxCell id="note1"
+          value="&lt;b&gt;ProductCategoryType (Attr)&lt;/b&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;fontColor=#cc0000;align=left;"
+          vertex="1" parent="1">
+          <mxGeometry x="100" y="360" width="240" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="note2"
+          value="ProductCategory"
+          style="text;html=1;strokeColor=none;fillColor=none;fontColor=#cc0000;align=left;"
+          vertex="1" parent="1">
+          <mxGeometry x="100" y="400" width="140" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="note3"
+          value="ProductCategoryRollup"
+          style="text;html=1;strokeColor=none;fillColor=none;fontColor=#cc0000;align=left;"
+          vertex="1" parent="1">
+          <mxGeometry x="100" y="440" width="180" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="note4"
+          value="ProductCategoryAttribute"
+          style="text;html=1;strokeColor=none;fillColor=none;fontColor=#cc0000;align=left;"
+          vertex="1" parent="1">
+          <mxGeometry x="100" y="480" width="220" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="note5"
+          value="Product"
+          style="text;html=1;strokeColor=none;fillColor=none;fontColor=#cc0000;align=left;"
+          vertex="1" parent="1">
+          <mxGeometry x="100" y="520" width="100" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="note6"
+          value="ProdCatalogCategory"
+          style="text;html=1;strokeColor=none;fillColor=none;fontColor=#cc0000;align=left;"
+          vertex="1" parent="1">
+          <mxGeometry x="420" y="400" width="180" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="note7"
+          value="ProdCatalog"
+          style="text;html=1;strokeColor=none;fillColor=none;fontColor=#cc0000;align=left;"
+          vertex="1" parent="1">
+          <mxGeometry x="620" y="400" width="140" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="note8"
+          value="ProductCategoryMember"
+          style="text;html=1;strokeColor=none;fillColor=none;fontColor=#cc0000;align=left;"
+          vertex="1" parent="1">
+          <mxGeometry x="380" y="520" width="200" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="note9"
+          value="Product"
+          style="text;html=1;strokeColor=none;fillColor=none;fontColor=#cc0000;align=left;"
+          vertex="1" parent="1">
+          <mxGeometry x="620" y="520" width="100" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- LOWER CONNECTORS -->
+        <mxCell id="le1"
+          style="edgeStyle=none;html=1;strokeColor=#cc0000;"
+          edge="1" parent="1" source="note2" target="note6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="le2"
+          style="edgeStyle=none;html=1;strokeColor=#cc0000;"
+          edge="1" parent="1" source="note6" target="note7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="le3"
+          style="edgeStyle=none;html=1;strokeColor=#cc0000;"
+          edge="1" parent="1" source="note2" target="note8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="le4"
+          style="edgeStyle=none;html=1;strokeColor=#cc0000;"
+          edge="1" parent="1" source="note8" target="note9">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
