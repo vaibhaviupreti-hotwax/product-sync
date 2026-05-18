@@ -68,6 +68,66 @@ STORE	10007	30067108005
 STORE	10008	30067108003
 ---
 
+## version - 1.2
+### what is changed ?
+
+PCC filters in PCC join
+PCM filters in PCM join
+PSC filters in WHERE
+PRODUCT filters in WHERE
+
+- count(*) + DISTINCT 
+| PRODUCT_ID | CATEGORY |
+| ---------- | -------- |
+| WG-111     | MEN      |
+| WG-111     | WINTER   |
+| WG-111     | SALE     |
+
+-- EXPLAIN ANALYZE
+-- COUNT(DISTINCT P.PRODUCT_ID) AS PRODUCT_COUNT, --COUNT DISTINCT PRODUCTS
+...
+-- GROUP BY PSC.PRODUCT_STORE_ID 
+;
+
+### pros:
+- DISTINCT : duplicate products are not counted, possible because there are several joins and products can repeat for category, etc.
+- Applied filters while JOINING the table for the first time and for the 1st table PRODUCT_STORE - applied checks in WHERE clause. 
+
+
+### query:
+SELECT 
+DISTINCT
+P.PRODUCT_ID,
+P.INTERNAL_NAME, 
+ PSC.PRODUCT_STORE_ID --PER STORE [CHECK GRP BY]
+FROM PRODUCT_STORE_CATALOG PSC
+JOIN PROD_CATALOG_CATEGORY PCC ON PSC.PROD_CATALOG_ID = PCC.PROD_CATALOG_ID
+AND PCC.FROM_DATE <= NOW()
+AND (PCC.THRU_DATE IS NULL
+     OR PCC.THRU_DATE > NOW())
+JOIN PRODUCT_CATEGORY_MEMBER PCM ON PCC.PRODUCT_CATEGORY_ID = PCM.PRODUCT_CATEGORY_ID
+AND PCM.FROM_DATE <= NOW()
+AND (PCM.THRU_DATE IS NULL
+     OR PCM.THRU_DATE > NOW())
+JOIN PRODUCT P ON PCM.PRODUCT_ID = P.PRODUCT_ID  WHERE PSC.PRODUCT_STORE_ID='STORE' -- NOW, CONDITIONS ON BASE TABLE ARE ADDED IN WHERE
+AND PSC.FROM_DATE <= NOW()
+AND (PSC.THRU_DATE IS NULL
+     OR PSC.THRU_DATE > NOW())
+AND P.IS_VIRTUAL='Y'
+AND P.IS_VARIANT='N'
+
+### result: 1000 ROWS // BECAUSE OF LIMIT //ORIGINAL - 1003 ROWS
+PRODUCT_ID	INTERNAL_NAME	                        PRODUCT_STORE_ID
+10000	V_30037376-billetera-onyx-para-hombre	    STORE
+10003	V_30011272-billetera-petoskey-para-hombre	STORE
+10006	V_30067108-blusa-denim-para-mujer	        STORE
+10012	V_30055847-flutter	                        STORE
+10022	V_30055845-kelly-sleeveless	                STORE
+10031	V_30053083-vivian	                        STORE
+10040	V_30063857-bolso-code-hex-go-unisex	        STORE
+10042	V_30058856-bolso-detroit-negro	            STORE
+10045	V_30062182-mochila-hex-go-para-hombre	    STORE
+10047	V_30063850-bolso-kilimanjaro-unisex	        STORE
 
 
 
