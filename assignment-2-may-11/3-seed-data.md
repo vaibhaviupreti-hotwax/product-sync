@@ -1,10 +1,15 @@
-Edited 2-ProductTypeMapping.md
+# Solution:
+https://docs.google.com/document/d/1aTPHgLloX1WJ09v5D66GMyD01mjVkyD9c97SNkXPYgk/edit?tab=t.bzd71dvsdb19 
 
-Here is the standard OFBiz/HotWax XML seed data format. You can use this template to manually map data you scrape or copy from an e-commerce website. 
+## Resources used for reference
 
+Following is - the Standard OFBiz/HotWax XML seed data format. 
+Template to manually map data scraped from an e-commerce website. 
+
+### AI bot conversation:
 To make it easy to understand, I have used a real-world example of an apparel website selling a **"Classic Cotton T-Shirt"** in different colors and sizes.
 
-### The Seed Data XML Template
+#### The Seed Data XML Template
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
