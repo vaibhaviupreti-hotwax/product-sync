@@ -1,5 +1,17 @@
 
 ## Q3 Prepare a documentation 
+requirement is meta information
+next step will be how to model it ? - for better data model - later to run a logic on it.
+
+order validate -  chk fraud - adhar|ID|y - country wise personal identity
+ProductCategoryAttribute
+better model for the real data..
+
+order approve 
+c_id + id type(which id used) | unicpo | phone | ship to address ..|etc.. 
+
+not a separate table | cannnot alter table | table size | normalized form
+
 - Write example use cases of ProductCategoryAttribute table, it is not currently implemented but is included in the enterprise data model? 
 
 Shopify          →  knows what products LOOK like

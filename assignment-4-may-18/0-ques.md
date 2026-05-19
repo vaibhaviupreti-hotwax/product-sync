@@ -10,3 +10,5 @@
 
 ## Q3 Prepare a documentation 
 - Write example use cases of ProductCategoryAttribute table, it is not currently implemented but is included in the enterprise data model? 
+
+---
