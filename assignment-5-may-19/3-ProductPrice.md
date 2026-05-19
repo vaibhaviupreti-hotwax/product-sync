@@ -1,5 +1,4 @@
 `PRODUCT_PRICE`
-
 ---
 ### IDENTITY & LOOKUP
 
