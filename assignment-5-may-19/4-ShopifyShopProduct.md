@@ -1,6 +1,3 @@
-
-![alt text](image.png)
-
 | Field Name | Type | Description |
 |---|---|---|
 | SHOP_ID | PK | Which Shopify store. Part of the composite key — always pair with PRODUCT_ID when querying. |
